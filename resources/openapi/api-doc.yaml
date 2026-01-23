@@ -1,0 +1,82 @@
+openapi: 3.1.1
+info:
+    title: rol sandbox
+    version: 1.0.0
+    description: Rol Open documentation & sandbox
+servers:
+    - url: http://localhost:8800
+      description: Development environment
+components:
+    schemas:
+        Rule:
+            type: object
+            properties:
+                rolId:
+                    $ref: '#/components/schemas/Id'
+        Id:
+            type: string
+            example: 8ecf229b-fdc8-4794-9f17-a690ec680081
+        Number:
+            type: integer
+            example: 0
+
+tags:
+    - name: Health
+    - name: Rules
+paths:
+    ######################################
+    ####            HEALTH            ####
+    ######################################
+    /health:
+        get:
+            tags:
+                - Health
+            summary: Health check
+            responses:
+                '200':
+                    description: Service available
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+
+    ######################################
+    ####            REULES            ####
+    ######################################
+    /insert-coin:
+        post:
+            tags:
+                - Rule
+            summary: Insert a Coin.
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: string
+                        example:
+                            '0.25'
+            responses:
+                '202':
+                    description: Inserted coin.
+                '409':
+                    description: Unable to accept the coin.
+                    content:
+                        application/json:
+                            schema:
+                                type: string
+                            example: 'Coin value is not valid'
+    /return-coins:
+        get:
+            tags:
+                - Rule
+            summary: Return all the Coins.
+            responses:
+                '200':
+                    description: Return all of the founds of the transaction.
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                            example:
+                                - '0.10'
+                                - '0.10'

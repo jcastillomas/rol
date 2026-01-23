@@ -1,0 +1,38 @@
+parameters:
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        bind:
+            $commandBus: '@shared.application.command_bus'
+
+    ApiRol\:
+        resource: '../src/'
+        exclude:
+            - '../src/Kernel.php'
+
+    _instanceof:
+        ApiRol\Shared\Domain\Message\Message:
+            tags: [ 'message' ]
+
+        ApiRol\Shared\Application\Bus\Command\CommandHandlerInterface:
+            tags:
+                - { name: messenger.message_handler, bus: messenger.bus.commands }
+
+        ApiRol\Shared\Application\Bus\Query\QueryHandlerInterface:
+            tags:
+                - { name: messenger.message_handler, bus: messenger.bus.queries }
+
+    message.message_factory:
+        alias: ApiRol\Shared\Domain\Message\Factory\FullyQualifiedClassNameMessageFactory
+
+    shared.application.command_bus:
+        class: ApiRol\Shared\Infrastructure\Bus\Command\MessengerCommandBus
+        arguments:
+            - '@messenger.bus.commands'
+
+    shared.application.query_bus:
+        class: ApiRol\Shared\Infrastructure\Bus\Query\MessengerQueryBus
+        arguments:
+            - '@messenger.bus.queries'

@@ -1,0 +1,19 @@
+services:
+    _defaults:
+        public: true
+
+    ApiRol\Tests\DataFixtures\:
+        resource: '../tests/DataFixtures/*'
+
+    ApiRol\Tests\DataFixtures\DataLoaders\RuleFixtures:
+        tags: [ 'doctrine.fixture.orm' ]
+
+    test.ApiRol\Context\Rule\Domain\Write\Repository\RuleRepository: '@ApiRol\Context\Rule\Infrastructure\Write\Persistence\Doctrine\MySQL\Repository\DoctrineRuleRepository'
+
+    ApiRol\Tests\Infrastructure\Acceptance\Behat\Context\ApiContext:
+        arguments:
+            - '@kernel'
+    ApiRol\Tests\Infrastructure\Acceptance\Behat\Context\RuleContext:
+        arguments:
+            - '@kernel'
+

@@ -1,0 +1,4 @@
+health:
+    resource: '../src/Shared/UI/Symfony/routes/health.yaml'
+rule:
+    resource: '../src/Context/Rule/UI/Symfony/routes/rule.yaml'

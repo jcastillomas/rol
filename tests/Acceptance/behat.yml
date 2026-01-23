@@ -1,0 +1,17 @@
+default:
+    suites:
+        health:
+            paths: [ tests/Acceptance/Health ]
+            contexts:
+                - ApiRol\Tests\Infrastructure\Acceptance\Behat\Context\ApiContext
+        rule:
+            paths: [ tests/Acceptance/Rule ]
+            contexts:
+                - ApiRol\Tests\Infrastructure\Acceptance\Behat\Context\ApiContext
+                - ApiRol\Tests\Infrastructure\Acceptance\Behat\Context\RuleContext
+    extensions:
+        FriendsOfBehat\SymfonyExtension:
+            bootstrap: 'config/bootstrap.php'
+            kernel:
+                class: ApiRol\Kernel
+                environment: test

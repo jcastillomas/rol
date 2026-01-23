@@ -1,0 +1,27 @@
+doctrine:
+    dbal:
+        default_connection: default
+        connections:
+            default:
+                url: 'mysql://%env(MYSQL_USERNAME)%:%env(MYSQL_PASSWORD)%@%env(MYSQL_HOST)%:%env(MYSQL_PORT)%/%env(MYSQL_DATABASE_NAME)%'
+                server_version: '%env(MYSQL_SERVER_VERSION)%'
+            migrations:
+                url: 'mysql://%env(MYSQL_MIGRATIONS_USERNAME)%:%env(MYSQL_MIGRATIONS_PASSWORD)%@%env(MYSQL_HOST)%:%env(MYSQL_PORT)%/%env(MYSQL_DATABASE_NAME)%'
+                server_version: '%env(MYSQL_SERVER_VERSION)%'
+
+        types:
+            ######################  RULE  ######################
+            rule_id: ApiRol\Context\Rule\Infrastructure\Write\Persistence\Doctrine\MySQL\Type\RuleIdType
+
+    orm:
+        entity_managers:
+            rol:
+                connection: default
+                validate_xml_mapping: true
+                naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+                mappings:
+                    Rule:
+                        type: xml
+                        dir: '%kernel.project_dir%/src/Context/Rule/Infrastructure/Write/Persistence/Doctrine/MySQL/Mapping'
+                        prefix: 'ApiRol\Context\Rule\Domain\Write'
+                        is_bundle: false

@@ -1,0 +1,18 @@
+framework:
+    messenger:
+        default_bus: messenger.bus.queries
+
+        buses:
+            messenger.bus.commands:
+                default_middleware: false
+                middleware:
+                    - doctrine_ping_connection
+                    - dispatch_after_current_bus
+                    - doctrine_transaction
+                    - handle_message
+            messenger.bus.queries:
+                default_middleware: false
+                middleware:
+                    - handle_message
+        serializer:
+            default_serializer: ApiRol\Shared\Infrastructure\Bus\Message\MessengerMessageSerializer

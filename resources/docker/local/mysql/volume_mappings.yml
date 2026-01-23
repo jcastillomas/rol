@@ -1,0 +1,5 @@
+version:  '2.4'
+services:
+  rol_mysql:
+    volumes:
+       - '../../../../database:/var/lib/mysql:cached'
