@@ -1,0 +1,9 @@
+get_rule:
+    path: /rules/{ruleId}
+    controller: ApiRol\Context\Rule\UI\Controller\GetRuleController
+    methods:  [GET]
+
+post_rule:
+    path: /rules
+    controller: ApiRol\Context\Rule\UI\Controller\PostRuleController
+    methods:  [POST]

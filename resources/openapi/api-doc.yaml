@@ -11,7 +11,7 @@ components:
         Rule:
             type: object
             properties:
-                rolId:
+                id:
                     $ref: '#/components/schemas/Id'
         Id:
             type: string
@@ -43,40 +43,54 @@ paths:
     ######################################
     ####            REULES            ####
     ######################################
-    /insert-coin:
+    /rules:
         post:
             tags:
                 - Rule
-            summary: Insert a Coin.
+            summary: Insert a Rule.
             requestBody:
                 content:
                     application/json:
                         schema:
-                            type: string
-                        example:
-                            '0.25'
+                            type: object
+                            properties:
+                                id:
+                                    $ref: '#/components/schemas/Id'
             responses:
-                '202':
-                    description: Inserted coin.
-                '409':
-                    description: Unable to accept the coin.
+                '201':
+                    description: Resource Created
                     content:
                         application/json:
                             schema:
                                 type: string
-                            example: 'Coin value is not valid'
-    /return-coins:
+                                default: { }
+                '400':
+                    description: Bad Request
+                '401':
+                    description: Unauthorised
+                '409':
+                    description: Rule cannot be created
+    /rules/{id}:
         get:
             tags:
                 - Rule
-            summary: Return all the Coins.
+            summary: Find a Rule.
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: the rule identifier, as RuleId
+                    schema:
+                        $ref: '#/components/schemas/Id'
             responses:
                 '200':
-                    description: Return all of the founds of the transaction.
+                    description: Resource Found
                     content:
                         application/json:
                             schema:
-                                type: array
-                            example:
-                                - '0.10'
-                                - '0.10'
+                                type: object
+                                properties:
+                                    data:
+                                        $ref: '#/components/schemas/Rule'
+                                    metadata:
+                                        type: object

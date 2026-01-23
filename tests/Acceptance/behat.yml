@@ -8,7 +8,7 @@ default:
             paths: [ tests/Acceptance/Rule ]
             contexts:
                 - ApiRol\Tests\Infrastructure\Acceptance\Behat\Context\ApiContext
-                - ApiRol\Tests\Infrastructure\Acceptance\Behat\Context\RuleContext
+                - ApiRol\Tests\Infrastructure\Acceptance\Behat\Context\Rule\RuleContext
     extensions:
         FriendsOfBehat\SymfonyExtension:
             bootstrap: 'config/bootstrap.php'
