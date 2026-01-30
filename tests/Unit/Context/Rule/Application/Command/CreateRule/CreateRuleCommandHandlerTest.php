@@ -55,11 +55,6 @@ class CreateRuleCommandHandlerTest extends TestCase
         $this->ruleRepository->shouldSave($rule);
     }
 
-    private function thenRuleShouldNotBeSaved(): void
-    {
-        $this->ruleRepository->shouldNotCallSave();
-    }
-
     private function whenHandlingCommand(CreateRuleCommand $command): void
     {
         $this->handler->__invoke($command);

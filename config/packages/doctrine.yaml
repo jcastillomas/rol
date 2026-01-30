@@ -10,8 +10,18 @@ doctrine:
                 server_version: '%env(MYSQL_SERVER_VERSION)%'
 
         types:
-            ######################  RULE  ######################
+            ######################   SHARED    ######################
+            name: ApiRol\Shared\Infrastructure\Persistence\Doctrine\MySQL\Type\NameType
+            description: ApiRol\Shared\Infrastructure\Persistence\Doctrine\MySQL\Type\DescriptionType
+            ######################    RULE     ######################
             rule_id: ApiRol\Context\Rule\Infrastructure\Write\Persistence\Doctrine\MySQL\Type\RuleIdType
+            ######################  CHARACTER  ######################
+            character_id: ApiRol\Context\Character\Infrastructure\Write\Persistence\Doctrine\MySQL\Type\CharacterIdType
+            ability_id: ApiRol\Context\Character\Infrastructure\Write\Persistence\Doctrine\MySQL\Type\AbilityIdType
+            character_ability_id: ApiRol\Context\Character\Infrastructure\Write\Persistence\Doctrine\MySQL\Type\CharacterAbilityIdType
+            character_attribute: ApiRol\Context\Character\Infrastructure\Write\Persistence\Doctrine\MySQL\Type\CharacterAttributeType
+            character_life: ApiRol\Context\Character\Infrastructure\Write\Persistence\Doctrine\MySQL\Type\CharacterLifeType
+            character_armour: ApiRol\Context\Character\Infrastructure\Write\Persistence\Doctrine\MySQL\Type\CharacterArmourType
 
     orm:
         entity_managers:
@@ -24,4 +34,9 @@ doctrine:
                         type: xml
                         dir: '%kernel.project_dir%/src/Context/Rule/Infrastructure/Write/Persistence/Doctrine/MySQL/Mapping'
                         prefix: 'ApiRol\Context\Rule\Domain\Write'
+                        is_bundle: false
+                    Character:
+                        type: xml
+                        dir: '%kernel.project_dir%/src/Context/Character/Infrastructure/Write/Persistence/Doctrine/MySQL/Mapping'
+                        prefix: 'ApiRol\Context\Character\Domain\Write'
                         is_bundle: false

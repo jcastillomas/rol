@@ -1,0 +1,9 @@
+get_character:
+    path: /characters/{characterId}
+    controller: ApiRol\Context\Character\UI\Controller\GetCharacterController
+    methods:  [GET]
+
+post_character:
+    path: /characters
+    controller: ApiRol\Context\Character\UI\Controller\PostCharacterController
+    methods:  [POST]

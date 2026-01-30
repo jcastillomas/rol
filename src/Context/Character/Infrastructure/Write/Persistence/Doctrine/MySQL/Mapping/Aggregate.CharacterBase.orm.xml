@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+    https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="ApiRol\Context\Character\Domain\Write\Aggregate\CharacterBase" table="character_base">
+        <id name="id" column="id" type="character_id" length="64"/>
+        <field name="createdAt" column="created_at" type="datetime_immutable" />
+        <field name="updatedAt" column="updated_at" type="datetime_immutable" nullable="true" />
+        <field name="characterName" column="name" type="name" length="100" nullable="true"/>
+        <field name="characterDescription" column="description" type="description" length="500" nullable="true"/>
+        <field name="characterAttArcanum" column="att_arcanum" type="character_attribute"/>
+        <field name="characterAttCharisma" column="att_charisma" type="character_attribute"/>
+        <field name="characterAttConstitution" column="att_constitution" type="character_attribute"/>
+        <field name="characterAttDexterity" column="att_dexterity" type="character_attribute"/>
+        <field name="characterAttStrength" column="att_strength" type="character_attribute"/>
+        <field name="characterLife" column="life" type="character_life"/>
+        <field name="characterArmour" column="armour" type="character_armour"/>
+        <many-to-many field="characterAbilities" target-entity="ApiRol\Context\Character\Domain\Write\Entity\CharacterAbility" fetch="EAGER">
+            <join-table name="character_character_ability">
+                <join-columns>
+                    <join-column name="character_id" referenced-column-name="id" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="character_ability_id" referenced-column-name="id" />
+                </inverse-join-columns>
+            </join-table>
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </many-to-many>
+    </entity>
+</doctrine-mapping>

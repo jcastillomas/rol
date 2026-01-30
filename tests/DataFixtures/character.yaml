@@ -1,0 +1,16 @@
+characters:
+  - id: "471d288c-dbe7-4f2f-bfd8-91d9040caed4"
+    createdAt: "2024-09-09T11:47:08+00:00"
+    updatedAt: "2024-09-09T11:47:08+00:00"
+    characterName: 'Test Character'
+    characterDescription: 'A character used for testing purposes.'
+    characterLife: 135
+    characterArmour: 21
+    characterAttArcanum: 10
+    characterAttCharisma: 10
+    characterAttConstitution: 10
+    characterAttDexterity: 10
+    characterAttStrength: 10
+    characterAbilities:
+      - id: "0fa54cda-42c6-42f6-8a1b-0f69364c8db2"
+        abilityId: "5827afb0-033a-4fe4-926e-8aa21bf9318f"

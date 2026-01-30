@@ -75,6 +75,7 @@ help:
 	@echo -e "    $(COLOR_YELLOW)test-all			$(COLOR_PURPLE)-> $(COLOR_CYAN) Execute all tests $(COLOR_NC)"
 	@echo -e "    $(COLOR_YELLOW)load-fixtures		$(COLOR_PURPLE)-> $(COLOR_CYAN) Loads all fixtures in local DBs $(COLOR_NC)"
 	@echo -e "    $(COLOR_YELLOW)load-schemas		$(COLOR_PURPLE)-> $(COLOR_CYAN) Loads all DB schemas in local DBs $(COLOR_NC)"
+	@echo -e "    $(COLOR_YELLOW)reset-test-db			$(COLOR_PURPLE)-> $(COLOR_CYAN) Resets all test DB tables and schema $(COLOR_NC)"
 	@echo ""
 
 ## install: Creates the environment
@@ -137,5 +138,10 @@ load-fixtures:
 .PHONY: load-schemas
 load-schemas:
 	docker compose exec php-fpm bin/console doctrine:migrations:migrate --no-interaction
-	docker compose exec php-fpm bin/console doctrine:migrations:migrate --no-interaction --configuration=config/doctrine_data_migrations.yaml
-	docker compose exec php-fpm bin/console efollowup:mongodb:schema_update
+
+## Resets DB
+.PHONY: reset-test-db
+reset-test-db:
+	@docker compose exec php-fpm /bin/bash -c "XDEBUG_MODE=off bin/console doctrine:database:drop -f || true"
+	@docker compose exec php-fpm /bin/bash -c "XDEBUG_MODE=off bin/console doctrine:database:create"
+	@docker compose exec php-fpm /bin/bash -c "XDEBUG_MODE=off bin/console doctrine:migrations:migrate --no-interaction"

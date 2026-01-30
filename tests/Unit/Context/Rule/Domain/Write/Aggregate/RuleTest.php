@@ -12,11 +12,11 @@ class RuleTest extends TestCase
     {
         $id = RuleIdStub::random();
 
-        $doctor = Rule::create(
+        $rule = Rule::create(
             $id,
         );
 
 
-        $this->assertTrue($id->equalsTo($doctor->id()));
+        $this->assertTrue($id->equalsTo($rule->id()));
     }
 }

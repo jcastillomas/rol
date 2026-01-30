@@ -7,8 +7,11 @@ services:
 
     ApiRol\Tests\DataFixtures\DataLoaders\RuleFixtures:
         tags: [ 'doctrine.fixture.orm' ]
+    ApiRol\Tests\DataFixtures\DataLoaders\CharacterFixtures:
+        tags: [ 'doctrine.fixture.orm' ]
 
     test.ApiRol\Context\Rule\Domain\Write\Repository\RuleRepository: '@ApiRol\Context\Rule\Infrastructure\Write\Persistence\Doctrine\MySQL\Repository\DoctrineRuleRepository'
+    test.ApiRol\Context\Character\Domain\Write\Repository\CharacterRepository: '@ApiRol\Context\Character\Infrastructure\Write\Persistence\Doctrine\MySQL\Repository\DoctrineCharacterRepository'
 
     ApiRol\Tests\Infrastructure\Acceptance\Behat\Context\ApiContext:
         arguments:
@@ -18,4 +21,9 @@ services:
         arguments:
             - '@kernel'
             - '@test.ApiRol\Context\Rule\Domain\Write\Repository\RuleRepository'
+
+    ApiRol\Tests\Infrastructure\Acceptance\Behat\Context\Character\CharacterContext:
+        arguments:
+            - '@kernel'
+            - '@test.ApiRol\Context\Character\Domain\Write\Repository\CharacterRepository'
 

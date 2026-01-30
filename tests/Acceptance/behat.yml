@@ -9,6 +9,12 @@ default:
             contexts:
                 - ApiRol\Tests\Infrastructure\Acceptance\Behat\Context\ApiContext
                 - ApiRol\Tests\Infrastructure\Acceptance\Behat\Context\Rule\RuleContext
+        character:
+            paths: [ tests/Acceptance/Character ]
+            contexts:
+                - ApiRol\Tests\Infrastructure\Acceptance\Behat\Context\ApiContext
+                - ApiRol\Tests\Infrastructure\Acceptance\Behat\Context\Character\CharacterContext
+
     extensions:
         FriendsOfBehat\SymfonyExtension:
             bootstrap: 'config/bootstrap.php'
