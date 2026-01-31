@@ -11,16 +11,16 @@ use ApiRol\Shared\Application\Bus\Command\CommandHandlerInterface;
 final readonly class CreateRuleCommandHandler implements CommandHandlerInterface
 {
     public function __construct(
-        private RuleRepository $doctorRepository
+        private RuleRepository $ruleRepository
     ) {
     }
 
     public function __invoke(CreateRuleCommand $command): void
     {
-        $doctor = Rule::create(
+        $rule = Rule::create(
             $command->id(),
         );
 
-        $this->doctorRepository->save($doctor);
+        $this->ruleRepository->save($rule);
     }
 }

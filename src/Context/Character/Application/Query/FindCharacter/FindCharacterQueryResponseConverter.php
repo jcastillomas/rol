@@ -8,10 +8,10 @@ use ApiRol\Context\Character\Domain\Write\Aggregate\CharacterBase;
 
 final class FindCharacterQueryResponseConverter
 {
-    public function __invoke(CharacterBase $doctor): FindCharacterQueryResponse
+    public function __invoke(CharacterBase $character): FindCharacterQueryResponse
     {
         return new FindCharacterQueryResponse([
-            FindCharacterQueryResponse::ID => $doctor->id()->value(),
+            FindCharacterQueryResponse::ID => $character->id()->value(),
         ]);
     }
 }

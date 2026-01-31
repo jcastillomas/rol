@@ -8,10 +8,10 @@ use ApiRol\Context\Rule\Domain\Write\Aggregate\Rule;
 
 final class FindRuleQueryResponseConverter
 {
-    public function __invoke(Rule $doctor): FindRuleQueryResponse
+    public function __invoke(Rule $rule): FindRuleQueryResponse
     {
         return new FindRuleQueryResponse([
-            FindRuleQueryResponse::ID => $doctor->id()->value(),
+            FindRuleQueryResponse::ID => $rule->id()->value(),
         ]);
     }
 }

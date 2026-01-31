@@ -11,13 +11,13 @@ use ApiRol\Shared\Application\Bus\Command\CommandHandlerInterface;
 final readonly class CreateCharacterCommandHandler implements CommandHandlerInterface
 {
     public function __construct(
-        private CharacterRepository $doctorRepository
+        private CharacterRepository $characterRepository
     ) {
     }
 
     public function __invoke(CreateCharacterCommand $command): void
     {
-        $doctor = CharacterBase::create(
+        $character = CharacterBase::create(
             $command->id(),
             $command->characterName(),
             $command->characterDescription(),
@@ -31,6 +31,6 @@ final readonly class CreateCharacterCommandHandler implements CommandHandlerInte
             $command->characterAbilities(),
         );
 
-        $this->doctorRepository->save($doctor);
+        $this->characterRepository->save($character);
     }
 }
