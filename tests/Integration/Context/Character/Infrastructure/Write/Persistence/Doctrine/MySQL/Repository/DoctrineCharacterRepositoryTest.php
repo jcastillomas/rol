@@ -70,6 +70,15 @@ class DoctrineCharacterRepositoryTest extends AggregateRepositoryTestCase
         $this->assertEquals($expectedCharacter->id(), $actualCharacter->id());
         $this->assertEquals($expectedCharacter->createdAt()->getTimestamp(), $actualCharacter->createdAt()->getTimestamp());
         $this->assertEquals($expectedCharacter->updatedAt()->getTimestamp(), $actualCharacter->updatedAt()->getTimestamp());
+        $this->assertTrue($expectedCharacter->characterName()->equalsTo($actualCharacter->characterName()));
+        $this->assertTrue($expectedCharacter->characterDescription()->equalsTo($actualCharacter->characterDescription()));
+        $this->assertTrue($expectedCharacter->characterLife()->equalsTo($actualCharacter->characterLife()));
+        $this->assertTrue($expectedCharacter->characterArmour()->equalsTo($actualCharacter->characterArmour()));
+        $this->assertTrue($expectedCharacter->characterAttArcanum()->equalsTo($actualCharacter->characterAttArcanum()));
+        $this->assertTrue($expectedCharacter->characterAttCharisma()->equalsTo($actualCharacter->characterAttCharisma()));
+        $this->assertTrue($expectedCharacter->characterAttConstitution()->equalsTo($actualCharacter->characterAttConstitution()));
+        $this->assertTrue($expectedCharacter->characterAttDexterity()->equalsTo($actualCharacter->characterAttDexterity()));
+        $this->assertTrue($expectedCharacter->characterAttStrength()->equalsTo($actualCharacter->characterAttStrength()));
     }
 
     protected function repository(): AggregateRepository

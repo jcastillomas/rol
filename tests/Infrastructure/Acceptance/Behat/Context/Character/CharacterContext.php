@@ -4,12 +4,17 @@ declare(strict_types=1);
 
 namespace ApiRol\Tests\Infrastructure\Acceptance\Behat\Context\Character;
 
+use ApiRol\Context\Character\Domain\Write\Aggregate\Ability;
 use ApiRol\Context\Character\Domain\Write\Aggregate\CharacterBase;
+use ApiRol\Context\Character\Domain\Write\Aggregate\ValueObject\Ability\AbilityId;
 use ApiRol\Context\Character\Domain\Write\Aggregate\ValueObject\Character\CharacterId;
+use ApiRol\Context\Character\Domain\Write\Repository\AbilityRepository;
 use ApiRol\Context\Character\Domain\Write\Repository\CharacterRepository;
 use ApiRol\Shared\Domain\Service\Assertion\Assert;
+use ApiRol\Tests\DataFixtures\DataLoaders\AbilityFixtures;
 use ApiRol\Tests\DataFixtures\DataLoaders\CharacterFixtures;
 use ApiRol\Tests\Infrastructure\Acceptance\Behat\Context\AggregateContext;
+use ApiRol\Tests\Infrastructure\Context\Character\Domain\Write\Aggregate\AbilityStub;
 use ApiRol\Tests\Infrastructure\Context\Character\Domain\Write\Aggregate\CharacterStub;
 use Behat\Gherkin\Node\TableNode;
 use Symfony\Component\Console\Tester\CommandTester;
@@ -21,7 +26,8 @@ final class CharacterContext extends AggregateContext
 
     public function __construct(
         KernelInterface             $kernel,
-        private CharacterRepository $characterRepository
+        private CharacterRepository $characterRepository,
+        private AbilityRepository $abilityRepository
     )
     {
         parent::__construct($kernel);
@@ -39,7 +45,6 @@ final class CharacterContext extends AggregateContext
 
             $id = isset($attributes['id']) ? CharacterId::fromString($attributes['id']) : null;
 
-
             $character = CharacterStub::create(
                 $id,
             );
@@ -52,11 +57,42 @@ final class CharacterContext extends AggregateContext
     }
 
     /**
+     * @Given /^I have abilities with data$/
+     */
+    public function iHavaAbilitiesWithData(TableNode $table): void
+    {
+        foreach ($table->getHash() as $attributes) {
+            foreach ($attributes as $key => $attribute) {
+                $attributes[$key] = empty($attribute) ? null : $attribute;
+            }
+
+            $id = isset($attributes['id']) ? AbilityId::fromString($attributes['id']) : null;
+
+            $ability = AbilityStub::create(
+                $id,
+            );
+
+            $this->abilityRepository->save($ability);
+        }
+
+        $this->em()->flush();
+        $this->em()->clear();
+    }
+
+    /**
      * @Given /^I have characters$/
      */
     public function iHaveCharacters(): void
     {
         $this->loadFixtures(new CharacterFixtures());
+    }
+
+    /**
+     * @Given /^I have abilities$/
+     */
+    public function iHaveAbilities(): void
+    {
+        $this->loadFixtures(new AbilityFixtures());
     }
 
     /**
@@ -73,8 +109,22 @@ final class CharacterContext extends AggregateContext
         }
     }
 
+    /**
+     * @Then I should have the following abilities:
+     */
+    public function iShouldHaveFollowingAbilities(TableNode $table)
+    {
+        $this->em()->clear();
+        foreach ($table->getHash() as $abilityHash) {
+            /** @var Ability $ability */
+            $ability = $this->abilityRepository->find(AbilityId::fromString($abilityHash['id']));
+
+            Assert::eq($ability->id()->value(), $abilityHash['id']);
+        }
+    }
+
     protected function purge(): void
     {
-        $this->purgeTables('character_base', 'character_character_ability', 'character_ability');
+        $this->purgeTables('character_base', 'character_character_ability', 'character_ability', 'ability');
     }
 }

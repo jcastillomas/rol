@@ -1,0 +1,10 @@
+abilities:
+  - id: "0640343d-ac04-4114-8bc0-4ccc997fc9e0"
+    createdAt: "2024-09-09T11:47:08+00:00"
+    updatedAt: "2024-09-09T11:47:08+00:00"
+    abilityName: 'Test Ability'
+    abilityDescription: 'An ability used for testing purposes.'
+    abilityLength: 135
+    abilityTargetKind: 1
+    abilityValueKind: 1
+    abilityValue: '3d6 + DEX'

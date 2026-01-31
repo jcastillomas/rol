@@ -13,7 +13,6 @@ use ApiRol\Tests\Infrastructure\Context\Character\Domain\Write\Aggregate\ValueOb
 use ApiRol\Tests\Infrastructure\Context\Character\Domain\Write\Aggregate\ValueObject\CharacterAttributeStub;
 use ApiRol\Tests\Infrastructure\Context\Character\Domain\Write\Aggregate\ValueObject\CharacterIdStub;
 use ApiRol\Tests\Infrastructure\Context\Character\Domain\Write\Aggregate\ValueObject\CharacterLifeStub;
-use ApiRol\Tests\Infrastructure\Context\Character\Domain\Write\Entity\CharacterAbilityStub;
 use ApiRol\Tests\Infrastructure\Context\Character\Domain\Write\Entity\ValueObject\CharacterAbilityIdStub;
 use ApiRol\Tests\Infrastructure\Context\Character\Domain\Write\Repository\CharacterRepositoryMock;
 use ApiRol\Tests\Infrastructure\Shared\Domain\ValueObject\DescriptionStub;

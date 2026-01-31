@@ -7,3 +7,13 @@ post_character:
     path: /characters
     controller: ApiRol\Context\Character\UI\Controller\PostCharacterController
     methods:  [POST]
+
+get_ability:
+    path: /abilities/{abilityId}
+    controller: ApiRol\Context\Character\UI\Controller\GetAbilityController
+    methods:  [GET]
+
+post_ability:
+    path: /abilities
+    controller: ApiRol\Context\Character\UI\Controller\PostAbilityController
+    methods:  [POST]

@@ -9,9 +9,12 @@ services:
         tags: [ 'doctrine.fixture.orm' ]
     ApiRol\Tests\DataFixtures\DataLoaders\CharacterFixtures:
         tags: [ 'doctrine.fixture.orm' ]
+    ApiRol\Tests\DataFixtures\DataLoaders\AbilityFixtures:
+        tags: [ 'doctrine.fixture.orm' ]
 
     test.ApiRol\Context\Rule\Domain\Write\Repository\RuleRepository: '@ApiRol\Context\Rule\Infrastructure\Write\Persistence\Doctrine\MySQL\Repository\DoctrineRuleRepository'
     test.ApiRol\Context\Character\Domain\Write\Repository\CharacterRepository: '@ApiRol\Context\Character\Infrastructure\Write\Persistence\Doctrine\MySQL\Repository\DoctrineCharacterRepository'
+    test.ApiRol\Context\Character\Domain\Write\Repository\AbilityRepository: '@ApiRol\Context\Character\Infrastructure\Write\Persistence\Doctrine\MySQL\Repository\DoctrineAbilityRepository'
 
     ApiRol\Tests\Infrastructure\Acceptance\Behat\Context\ApiContext:
         arguments:
@@ -26,4 +29,5 @@ services:
         arguments:
             - '@kernel'
             - '@test.ApiRol\Context\Character\Domain\Write\Repository\CharacterRepository'
+            - '@test.ApiRol\Context\Character\Domain\Write\Repository\AbilityRepository'
 

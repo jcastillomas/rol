@@ -13,7 +13,7 @@ use ApiRol\Tests\Infrastructure\Shared\Domain\ValueObject\DescriptionStub;
 use ApiRol\Tests\Infrastructure\Shared\Domain\ValueObject\NameStub;
 use PHPUnit\Framework\TestCase;
 
-class CharacterTest extends TestCase
+class CharacterBaseTest extends TestCase
 {
     public function test_it_creates_a_character(): void
     {

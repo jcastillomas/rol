@@ -18,7 +18,7 @@ Feature: character
     """
 
     @truncateDatabaseTables @purgeQueues
-    Scenario: It creates a character from a valid request to post character endpoint with role CUSTOMER
+    Scenario: It creates a character from a valid request to post character endpoint
         When I send a "POST" request to "/characters" with body
       """
       {

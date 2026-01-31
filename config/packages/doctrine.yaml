@@ -22,6 +22,8 @@ doctrine:
             character_attribute: ApiRol\Context\Character\Infrastructure\Write\Persistence\Doctrine\MySQL\Type\CharacterAttributeType
             character_life: ApiRol\Context\Character\Infrastructure\Write\Persistence\Doctrine\MySQL\Type\CharacterLifeType
             character_armour: ApiRol\Context\Character\Infrastructure\Write\Persistence\Doctrine\MySQL\Type\CharacterArmourType
+            ability_length: ApiRol\Context\Character\Infrastructure\Write\Persistence\Doctrine\MySQL\Type\AbilityLengthType
+            ability_value: ApiRol\Context\Character\Infrastructure\Write\Persistence\Doctrine\MySQL\Type\AbilityValueType
 
     orm:
         entity_managers:

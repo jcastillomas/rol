@@ -25,15 +25,14 @@ class Ability extends AggregateRoot
     private AbilityValue $abilityValue;
     private Description $abilityDescription;
 
-
     public static function create(
-        AbilityId          $id,
-        AbilityLength      $abilityLength,
-        AbilityTargetKind  $abilityTargetKind,
-        Name        $abilityName,
-        AbilityValueKind   $abilityValueKind,
-        AbilityValue       $abilityValue,
-        Description $abilityDescription
+        AbilityId         $id,
+        Name              $abilityName,
+        Description       $abilityDescription,
+        AbilityLength     $abilityLength,
+        AbilityTargetKind $abilityTargetKind,
+        AbilityValueKind  $abilityValueKind,
+        AbilityValue      $abilityValue
     ): self
     {
         $ability = new self($id);
@@ -49,35 +48,36 @@ class Ability extends AggregateRoot
         return $ability;
     }
 
-    public function setAbilityLength(AbilityLength $abilityLength): void
+    public function abilityLength(): AbilityLength
     {
-        $this->abilityLength = $abilityLength;
+        return $this->abilityLength;
     }
 
-    public function setAbilityTargetKind(AbilityTargetKind $abilityTargetKind): void
+    public function abilityTargetKind(): AbilityTargetKind
     {
-        $this->abilityTargetKind = $abilityTargetKind;
+        return $this->abilityTargetKind;
     }
 
-    public function setName(Name $abilityName): void
+    public function abilityName(): Name
     {
-        $this->abilityName = $abilityName;
+        return $this->abilityName;
     }
 
-    public function setAbilityValueKind(AbilityValueKind $abilityValueKind): void
+    public function abilityValueKind(): AbilityValueKind
     {
-        $this->abilityValueKind = $abilityValueKind;
+        return $this->abilityValueKind;
     }
 
-    public function setAbilityValue(AbilityValue $abilityValue): void
+    public function abilityValue(): AbilityValue
     {
-        $this->abilityValue = $abilityValue;
+        return $this->abilityValue;
     }
 
-    public function setDescription(Description $abilityDescription): void
+    public function abilityDescription(): Description
     {
-        $this->abilityDescription = $abilityDescription;
+        return $this->abilityDescription;
     }
+
     public function createdAt(): DateTimeImmutable
     {
         return $this->createdAt;
