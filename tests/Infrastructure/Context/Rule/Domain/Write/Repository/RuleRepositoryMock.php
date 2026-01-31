@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiRol\Tests\Infrastructure\Context\Rule\Domain\Write\Repository;
 
-use ApiRol\Context\Rule\Domain\Exception\RuleNotFoundException;
 use ApiRol\Context\Rule\Domain\Write\Aggregate\Rule;
 use ApiRol\Context\Rule\Domain\Write\Aggregate\ValueObject\RuleId;
+use ApiRol\Context\Rule\Domain\Write\Exception\RuleNotFoundException;
 use ApiRol\Context\Rule\Domain\Write\Repository\RuleRepository;
 use ApiRol\Shared\Domain\Service\Assertion\Assert;
 use Prophecy\Argument;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiRol\Context\Rule\Domain\Exception;
+namespace ApiRol\Context\Rule\Domain\Write\Exception;
 
 use ApiRol\Context\Rule\Domain\Write\Aggregate\ValueObject\RuleId;
 use ApiRol\Shared\Domain\Exception\DomainException;

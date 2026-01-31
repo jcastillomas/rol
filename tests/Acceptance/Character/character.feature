@@ -34,7 +34,7 @@ Feature: character
         "characterAttStrength": 10,
         "characterAbilities": [
           {
-            "id": "0fa54cda-42c6-42f6-8a1b-0f69364c8db2",
+            "characterAbilityId": "0fa54cda-42c6-42f6-8a1b-0f69364c8db2",
             "abilityId": "5827afb0-033a-4fe4-926e-8aa21bf9318f"
           }
         ]

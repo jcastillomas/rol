@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiRol\Context\Rule\Infrastructure\Write\Persistence\Doctrine\MySQL\Repository;
 
-use ApiRol\Context\Rule\Domain\Exception\RuleNotFoundException;
 use ApiRol\Context\Rule\Domain\Write\Aggregate\Rule;
 use ApiRol\Context\Rule\Domain\Write\Aggregate\ValueObject\RuleId;
+use ApiRol\Context\Rule\Domain\Write\Exception\RuleNotFoundException;
 use ApiRol\Context\Rule\Domain\Write\Repository\RuleRepository;
 use ApiRol\Shared\Domain\Write\Exception\AggregateNotFoundException;
 use ApiRol\Shared\Infrastructure\Persistence\Doctrine\MySQL\Repository\AggregateRepository;

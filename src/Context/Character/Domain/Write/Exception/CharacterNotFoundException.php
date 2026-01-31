@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace ApiRol\Context\Character\Domain\Exception;
+namespace ApiRol\Context\Character\Domain\Write\Exception;
 
-use ApiRol\Shared\Domain\Exception\DomainException;
 use ApiRol\Context\Character\Domain\Write\Aggregate\ValueObject\Character\CharacterId;
+use ApiRol\Shared\Domain\Exception\DomainException;
 
 class CharacterNotFoundException extends DomainException
 {

@@ -2,9 +2,9 @@
 
 namespace ApiRol\Tests\Integration\Context\Rule\Infrastructure\Write\Persistence\Doctrine\MySQL\Repository;
 
-use ApiRol\Context\Rule\Domain\Exception\RuleNotFoundException;
 use ApiRol\Context\Rule\Domain\Write\Aggregate\Rule;
 use ApiRol\Context\Rule\Domain\Write\Aggregate\ValueObject\RuleId;
+use ApiRol\Context\Rule\Domain\Write\Exception\RuleNotFoundException;
 use ApiRol\Context\Rule\Domain\Write\Repository\RuleRepository;
 use ApiRol\Shared\Infrastructure\Persistence\Doctrine\MySQL\Repository\AggregateRepository;
 use ApiRol\Tests\Infrastructure\Context\Rule\Domain\Write\Aggregate\RuleStub;

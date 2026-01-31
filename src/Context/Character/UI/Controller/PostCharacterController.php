@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ApiRol\Context\Character\UI\Controller;
 
 use ApiRol\Context\Character\Application\Command\CreateCharacter\CreateCharacterCommand;
-use ApiRol\Context\Character\Domain\Exception\CharacterAlreadyExistsException;
+use ApiRol\Context\Character\Domain\Write\Exception\CharacterAlreadyExistsException;
 use ApiRol\Shared\UI\Controller\ApiController;
 use ApiRol\Shared\UI\Response\ApiHttpErrorResponse;
 use ApiRol\Shared\UI\Response\ApiHttpResponse;

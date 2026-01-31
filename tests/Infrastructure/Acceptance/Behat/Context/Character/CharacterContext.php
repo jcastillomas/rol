@@ -75,6 +75,6 @@ final class CharacterContext extends AggregateContext
 
     protected function purge(): void
     {
-        $this->purgeTables('character_base');
+        $this->purgeTables('character_base', 'character_character_ability', 'character_ability');
     }
 }

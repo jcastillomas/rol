@@ -132,7 +132,7 @@ final class CreateCharacterCommand extends Command
     private function createCharacterAbility(array $characterAbility): CharacterAbility
     {
         return CharacterAbility::create(
-            CharacterAbilityId::fromString($characterAbility['id']),
+            CharacterAbilityId::fromString($characterAbility['characterAbilityId']),
             AbilityId::fromString($characterAbility['abilityId']),
         );
     }

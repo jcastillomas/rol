@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiRol\Context\Character\Domain\Exception;
+namespace ApiRol\Context\Character\Domain\Write\Exception;
 
 use ApiRol\Context\Character\Domain\Write\Aggregate\ValueObject\Equipment\EquipmentId;
 use ApiRol\Shared\Domain\Exception\DomainException;

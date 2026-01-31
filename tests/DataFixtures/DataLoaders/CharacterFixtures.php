@@ -43,7 +43,7 @@ class CharacterFixtures extends Fixtures
                     CharacterAbilitiesStub::create(
                         ...array_map(
                             fn (array $characterAbility) => CharacterAbilityStub::createWithValidNullValues(
-                                id: CharacterAbilityId::fromString($characterAbility['id']),
+                                id: CharacterAbilityId::fromString($characterAbility['characterAbilityId']),
                                 abilityId: AbilityId::fromString($characterAbility['abilityId']),
                             ),
                             $characterFixture['characterAbilities']

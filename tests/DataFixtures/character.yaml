@@ -1,5 +1,5 @@
 characters:
-  - id: "471d288c-dbe7-4f2f-bfd8-91d9040caed4"
+  - id: "842bda92-aca3-4047-9b72-5c00a2f61242"
     createdAt: "2024-09-09T11:47:08+00:00"
     updatedAt: "2024-09-09T11:47:08+00:00"
     characterName: 'Test Character'
@@ -12,5 +12,5 @@ characters:
     characterAttDexterity: 10
     characterAttStrength: 10
     characterAbilities:
-      - id: "0fa54cda-42c6-42f6-8a1b-0f69364c8db2"
+      - characterAbilityId: "7a02e5b2-c507-44e7-bdb0-f7a95f318f68"
         abilityId: "5827afb0-033a-4fe4-926e-8aa21bf9318f"

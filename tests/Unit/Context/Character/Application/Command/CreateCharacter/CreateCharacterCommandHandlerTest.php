@@ -60,8 +60,8 @@ class CreateCharacterCommandHandlerTest extends TestCase
             CharacterAttributeStub::random()->value(),
             [
                 [
-                    'characterAbilityId' => CharacterAbilityIdStub::random(),
-                    'abilityId' => AbilityIdStub::random(),
+                    'characterAbilityId' => CharacterAbilityIdStub::random()->value(),
+                    'abilityId' => AbilityIdStub::random()->value(),
                 ]
             ],
         );

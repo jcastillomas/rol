@@ -6,7 +6,7 @@ namespace ApiRol\Context\Rule\UI\Controller;
 
 use ApiRol\Context\Rule\Application\Query\FindRule\FindRuleQuery;
 use ApiRol\Context\Rule\Application\Query\FindRule\FindRuleQueryResponse;
-use ApiRol\Context\Rule\Domain\Exception\RuleNotFoundException;
+use ApiRol\Context\Rule\Domain\Write\Exception\RuleNotFoundException;
 use ApiRol\Context\Rule\UI\Controller\Transformer\RuleResponseTransformer;
 use ApiRol\Shared\Application\Bus\Command\CommandBusInterface;
 use ApiRol\Shared\Application\Bus\Query\QueryBusInterface;

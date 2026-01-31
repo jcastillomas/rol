@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ApiRol\Context\Rule\UI\Controller;
 
 use ApiRol\Context\Rule\Application\Command\CreateRule\CreateRuleCommand;
-use ApiRol\Context\Rule\Domain\Exception\RuleAlreadyExistsException;
+use ApiRol\Context\Rule\Domain\Write\Exception\RuleAlreadyExistsException;
 use ApiRol\Shared\UI\Controller\ApiController;
 use ApiRol\Shared\UI\Response\ApiHttpErrorResponse;
 use ApiRol\Shared\UI\Response\ApiHttpResponse;

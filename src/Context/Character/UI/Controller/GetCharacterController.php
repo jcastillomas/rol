@@ -6,7 +6,7 @@ namespace ApiRol\Context\Character\UI\Controller;
 
 use ApiRol\Context\Character\Application\Query\FindCharacter\FindCharacterQuery;
 use ApiRol\Context\Character\Application\Query\FindCharacter\FindCharacterQueryResponse;
-use ApiRol\Context\Character\Domain\Exception\CharacterNotFoundException;
+use ApiRol\Context\Character\Domain\Write\Exception\CharacterNotFoundException;
 use ApiRol\Context\Character\UI\Controller\Transformer\CharacterResponseTransformer;
 use ApiRol\Shared\Application\Bus\Command\CommandBusInterface;
 use ApiRol\Shared\Application\Bus\Query\QueryBusInterface;

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiRol\Tests\Infrastructure\Context\Character\Domain\Write\Repository;
 
-use ApiRol\Context\Character\Domain\Exception\CharacterNotFoundException;
 use ApiRol\Context\Character\Domain\Write\Aggregate\CharacterBase;
 use ApiRol\Context\Character\Domain\Write\Aggregate\ValueObject\Character\CharacterId;
+use ApiRol\Context\Character\Domain\Write\Exception\CharacterNotFoundException;
 use ApiRol\Context\Character\Domain\Write\Repository\CharacterRepository;
 use ApiRol\Shared\Domain\Service\Assertion\Assert;
 use Prophecy\Argument;

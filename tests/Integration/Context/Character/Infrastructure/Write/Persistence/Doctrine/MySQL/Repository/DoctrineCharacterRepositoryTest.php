@@ -2,9 +2,9 @@
 
 namespace ApiRol\Tests\Integration\Context\Character\Infrastructure\Write\Persistence\Doctrine\MySQL\Repository;
 
-use ApiRol\Context\Character\Domain\Exception\CharacterNotFoundException;
 use ApiRol\Context\Character\Domain\Write\Aggregate\CharacterBase;
 use ApiRol\Context\Character\Domain\Write\Aggregate\ValueObject\Character\CharacterId;
+use ApiRol\Context\Character\Domain\Write\Exception\CharacterNotFoundException;
 use ApiRol\Context\Character\Domain\Write\Repository\CharacterRepository;
 use ApiRol\Shared\Infrastructure\Persistence\Doctrine\MySQL\Repository\AggregateRepository;
 use ApiRol\Tests\Infrastructure\Context\Character\Domain\Write\Aggregate\CharacterStub;

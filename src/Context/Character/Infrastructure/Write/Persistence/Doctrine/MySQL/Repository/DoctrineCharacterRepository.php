@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiRol\Context\Character\Infrastructure\Write\Persistence\Doctrine\MySQL\Repository;
 
-use ApiRol\Context\Character\Domain\Exception\CharacterNotFoundException;
 use ApiRol\Context\Character\Domain\Write\Aggregate\CharacterBase;
 use ApiRol\Context\Character\Domain\Write\Aggregate\ValueObject\Character\CharacterId;
+use ApiRol\Context\Character\Domain\Write\Exception\CharacterNotFoundException;
 use ApiRol\Context\Character\Domain\Write\Repository\CharacterRepository;
 use ApiRol\Shared\Domain\Write\Exception\AggregateNotFoundException;
 use ApiRol\Shared\Infrastructure\Persistence\Doctrine\MySQL\Repository\AggregateRepository;
