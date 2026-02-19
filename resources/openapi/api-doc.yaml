@@ -13,6 +13,16 @@ components:
             properties:
                 id:
                     $ref: '#/components/schemas/Id'
+        Character:
+            type: object
+            properties:
+                id:
+                    $ref: '#/components/schemas/Id'
+        Ability:
+            type: object
+            properties:
+                id:
+                    $ref: '#/components/schemas/Id'
         Id:
             type: string
             example: 8ecf229b-fdc8-4794-9f17-a690ec680081
@@ -23,6 +33,7 @@ components:
 tags:
     - name: Health
     - name: Rules
+    - name: Character
 paths:
     ######################################
     ####            HEALTH            ####
@@ -92,5 +103,111 @@ paths:
                                 properties:
                                     data:
                                         $ref: '#/components/schemas/Rule'
+                                    metadata:
+                                        type: object
+
+    ######################################
+    ####           CHARACTER          ####
+    ######################################
+    /characters:
+        post:
+            tags:
+                - Character
+            summary: Insert a Character.
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                id:
+                                    $ref: '#/components/schemas/Id'
+            responses:
+                '201':
+                    description: Resource Created
+                    content:
+                        application/json:
+                            schema:
+                                type: string
+                                default: { }
+                '400':
+                    description: Bad Request
+                '401':
+                    description: Unauthorised
+                '409':
+                    description: Character cannot be created
+    /characters/{id}:
+        get:
+            tags:
+                - Character
+            summary: Find a Character.
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: the rule identifier, as CharacterId
+                    schema:
+                        $ref: '#/components/schemas/Id'
+            responses:
+                '200':
+                    description: Resource Found
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    data:
+                                        $ref: '#/components/schemas/Character'
+                                    metadata:
+                                        type: object
+    /abilities:
+        post:
+            tags:
+                - Character
+            summary: Insert a Ability.
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                id:
+                                    $ref: '#/components/schemas/Id'
+            responses:
+                '201':
+                    description: Resource Created
+                    content:
+                        application/json:
+                            schema:
+                                type: string
+                                default: { }
+                '400':
+                    description: Bad Request
+                '401':
+                    description: Unauthorised
+                '409':
+                    description: Ability cannot be created
+    /abilities/{id}:
+        get:
+            tags:
+                - Character
+            summary: Find a Ability.
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: the rule identifier, as AbilityId
+                    schema:
+                        $ref: '#/components/schemas/Id'
+            responses:
+                '200':
+                    description: Resource Found
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    data:
+                                        $ref: '#/components/schemas/Ability'
                                     metadata:
                                         type: object
